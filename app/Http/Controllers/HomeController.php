@@ -26,7 +26,10 @@ class HomeController extends Controller
     	return view('pages.welcome', [
     		'articles' => Article::getByDate($request->year, $request->month)->simplePaginate(config('custom.paginate_quote')),
     		'categories' => Category::all(),
-            'dates' => $dates
+            'dates' => $dates,
+            'top_first'=>Article::where('top_first', true)->first(),
+            'top_second'=>Article::where('top_second', true)->first(),
+            'top_third'=>Article::where('top_third', true)->first()
     	]);
     }
 
@@ -41,7 +44,10 @@ class HomeController extends Controller
         return view('pages.welcome', [
             'articles' => Article::getByDate($year, $month)->simplePaginate(config('custom.paginate_quote')),
             'categories' => Category::all(),
-            'dates' => $dates
+            'dates' => $dates,
+            'top_first'=>Article::where('top_first', true)->first(),
+            'top_second'=>Article::where('top_second', true)->first(),
+            'top_third'=>Article::where('top_third', true)->first()
         ]);
     }
 }

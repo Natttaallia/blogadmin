@@ -46,11 +46,11 @@
     </nav>
   </div>
 
-  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark" style="background-size: cover;background-image: url({{ $top_first->image }})">
     <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+      <h1 class="display-4 font-italic">{{ $top_first->title }}</h1>
+      <p class="lead my-3">{!! str_limit($top_first->content, 100) !!}</p>
+      <p class="lead mb-0"><a href="{{ route('article', ['slug' => $top_first->slug]) }}" class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
   </div>
 
@@ -60,10 +60,10 @@
         <div class="card-body d-flex flex-column align-items-start">
           <strong class="d-inline-block mb-2 text-primary">World</strong>
           <h3 class="mb-0">
-            <a class="text-dark" href="#">Featured post</a>
+            <a class="text-dark" href="#">{{ $top_second->title }}</a>
           </h3>
           <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text mb-auto">{!! str_limit($top_second->content, 10) !!}</p>
           <a href="#">Continue reading</a>
         </div>
         <svg class="bd-placeholder-img card-img-right flex-auto d-none d-lg-block" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect fill="#55595c" width="100%" height="100%"/><text fill="#eceeef" dy=".3em" x="50%" y="50%">Thumbnail</text></svg>
