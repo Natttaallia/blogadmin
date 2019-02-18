@@ -192,9 +192,30 @@
 
 
         $(document).ready(function(){
+
+            $('input[type=checkbox][name=top_first]').change(function(){
+                $('input[type=checkbox][name^="top"]').prop('checked', false);
+                $(this).prop('checked', true);
+            });
+
+
+            $('input[type=checkbox][name=top_second]').change(function(){
+                $('input[type=checkbox][name^="top"]').prop('checked', false);
+                $(this).prop('checked', true);
+            });
+
+
+            $('input[type=checkbox][name=top_third]').change(function(){
+                $('input[type=checkbox][name^="top"]').prop('checked', false);
+                $(this).prop('checked', true);
+            });
+
+
             $('button.save[type=submit]').on('click',function(e){
-                e.preventDefault();
+                // e.preventDefault();
                 // console.log(this.checked);
+                let inTop = false;
+
                 if($('input[type=checkbox][name=top_first]').prop('checked')){
                     $.ajax({
                         method: 'get',
@@ -230,6 +251,7 @@
                             console.log(data);
                           },
                         });
+
                 }
             })
         })
